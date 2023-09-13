@@ -27,10 +27,10 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
-    - name: Run Unit Tests with JUnit
-      run: mvn test
+    - name: Build and Test Biblioteca package with Maven
+      run: mvn -B package --file ./Biblioteca/pom.xml test
+    - name: Build and Test IMC package with Maven
+      run: mvn -B package --file ./IMC/pom.xml test
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
