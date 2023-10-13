@@ -20,7 +20,7 @@ mvn org.jacoco:jacoco-maven-plugin:0.8.7:report -Djacoco.dataFile=jacoco.exec
 Por padrão, os dados de execução são lidos no arquivo target/jacoco.exec e o relatório de cobertura de código é gravado no
 diretório target/site/jacoco/index.html.
 Esse passo 3 é o que devemos incluir no CI.
-4. Para visualizar o report, no seu navegador de preferência coloque o caminho do arquivo index.html como url (```<relative-path>\esi-2023\Biblioteca\target\site\jacoco\index.html```)
+4. Para visualizar o report, no seu navegador de preferência coloque o caminho do arquivo index.html como url (```<relative-path>\target\site\jacoco\index.html```)
 
 ### É possível obter cobertura de 100%?
 Acesse a reflexão sobre a pergunta no arquivo desafio-cobertura_100.md na raiz do projeto
