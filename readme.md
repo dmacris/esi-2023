@@ -8,13 +8,13 @@ Em uma primeira atividade, envolvendo os conceitos de DevOps (apresentação dis
 Seguindo para os estudos sobre Testes Automatizados e Cobertura de Testes, utilizamos o [JUnit](https://junit.org/junit5/) nas classes de teste e, para verificar cobertura, contamos com o plugin do [JaCoCo](https://www.baeldung.com/jacoco). A seguir é apresentado como gerar o report para monitoria em seu ambiente local. É importante lembrar que este passo será feito no pipeline de CI automaticamente.
 
 1. Certifique-se que no pom.xml já o plugin do jacoco
-2. [prepare-agent] Rode o seguinte comando para gerar o arquivo jacoco.exec na pasta target, lembrando de substituir o <relative-path> relativo ao projeto do IMC ou Biblioteca
-```bash
- mvn test -f "<relative-path>\pom.xml"
-```
-3. Em seguida rode 
+2. Para gerar a /target, rode:
 ```bash
  mvn package
+```
+3. [prepare-agent] Rode o seguinte comando para gerar o arquivo jacoco.exec na pasta target, lembrando de substituir o <relative-path> relativo ao projeto do IMC ou Biblioteca
+```bash
+ mvn test -f "<relative-path>\pom.xml"
 ```
 4.[report] Rode o seguinte comando para gerar o report (a relatórios de cobertura de código a partir
    dos dados de execução registrados pelo agente da JaCoCo)
