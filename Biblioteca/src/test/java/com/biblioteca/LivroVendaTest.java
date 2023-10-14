@@ -1,9 +1,24 @@
 package com.biblioteca;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
 
+@RunWith(JUnit4.class)
 public class LivroVendaTest {
+    private Autor autor;
+    private Editora editora;
+    private Livro livro;
+    private LivroEstoque livroEstoque;
+    @Before
+    public void setup(){
+        autor = new Autor("Nome do Autor", "Sobrenome do autor");
+        editora = new Editora("Nome da Editora");
+        livro = new Livro(autor, editora, "1234567890", "Título do Livro", 200);
+        livroEstoque = new LivroEstoque(livro, 10, 50.0);
+    }
     @Test
     public void testConstrutorPadrao(){
         LivroVenda livroVenda = new LivroVenda();
@@ -13,55 +28,42 @@ public class LivroVendaTest {
 
     @Test
     public void testConstrutorComParametros(){
-        Autor autor = new Autor("Nome do Autor", "Sobrenome do autor");
-        Editora editora = new Editora("Nome da Editora");
-        Livro livro = new Livro(autor, editora, "ISBN0239183091", "Crime e Castigo", 623);
-        LivroEstoque livroEstoque = new LivroEstoque(livro, 1, 50.5);
         LivroVenda livroVenda = new LivroVenda(livroEstoque, 1);
         Assert.assertEquals(livroVenda.quantidade, 1);
-        Assert.assertEquals(livroVenda.livroDoEstoque.livro, livro);
+        Assert.assertEquals(livro, livroVenda.livroDoEstoque.livro);
     }
 
     @Test
     public void testQuantidadeDeVendaNaoDeveSerNegativa(){
-        Autor autor = new Autor("Nome do Autor", "Sobrenome do autor");
-        Editora editora = new Editora("Nome da Editora");
-        Livro livro = new Livro(autor, editora, "ISBN0239183091", "Crime e Castigo", 623);
-        LivroEstoque livroEstoque = new LivroEstoque(livro, 1, 50.5);
         LivroVenda livroVenda = new LivroVenda(livroEstoque, 0);
         Assert.assertFalse(livroVenda.DecrementarQuantidade());
     }
 
     @Test
     public void testIncrementarQuantidade(){
-        Autor autor = new Autor("Nome do Autor", "Sobrenome do autor");
-        Editora editora = new Editora("Nome da Editora");
-        Livro livro = new Livro(autor, editora, "ISBN0239183091", "Crime e Castigo", 623);
-        LivroEstoque livroEstoque = new LivroEstoque(livro, 1, 50.5);
         LivroVenda livroVenda = new LivroVenda(livroEstoque, 0);
         livroVenda.IncrementarQuantidade();
-        Assert.assertEquals(livroVenda.quantidade, 1);
+        Assert.assertEquals(1, livroVenda.quantidade);
     }
 
     @Test
     public void testIncrementarQuantidadeMaiorQueUm(){
-        Autor autor = new Autor("Nome do Autor", "Sobrenome do autor");
-        Editora editora = new Editora("Nome da Editora");
-        Livro livro = new Livro(autor, editora, "ISBN0239183091", "Crime e Castigo", 623);
-        LivroEstoque livroEstoque = new LivroEstoque(livro, 3, 50.5);
         LivroVenda livroVenda = new LivroVenda(livroEstoque, 0);
         livroVenda.IncrementarQuantidade(3);
-        Assert.assertEquals(livroVenda.quantidade, 3);
+        Assert.assertEquals(3, livroVenda.quantidade);
     }
 
     @Test
     public void testDecrementarQuantidade(){
-        Autor autor = new Autor("Nome do Autor", "Sobrenome do autor");
-        Editora editora = new Editora("Nome da Editora");
-        Livro livro = new Livro(autor, editora, "ISBN0239183091", "Crime e Castigo", 623);
-        LivroEstoque livroEstoque = new LivroEstoque(livro, 1, 50.5);
         LivroVenda livroVenda = new LivroVenda(livroEstoque, 1);
         livroVenda.DecrementarQuantidade();
-        Assert.assertEquals(livroVenda.quantidade, 0);
+        Assert.assertEquals(0, livroVenda.quantidade);
+    }
+
+    @Test
+    public void testDecrementarQuantidadeMaiorQueUm(){
+        LivroVenda livroVenda = new LivroVenda(livroEstoque, 3);
+        livroVenda.DecrementarQuantidade(2);
+        Assert.assertEquals(1, livroVenda.quantidade);
     }
 }
