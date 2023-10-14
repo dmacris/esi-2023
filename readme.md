@@ -7,6 +7,7 @@ Em uma primeira atividade, envolvendo os conceitos de DevOps (apresentação dis
 ### Verificar cobertura de Testes com Jacoco
 Seguindo para os estudos sobre Testes Automatizados e Cobertura de Testes, utilizamos o [JUnit](https://junit.org/junit5/) nas classes de teste e, para verificar cobertura, contamos com o plugin do [JaCoCo](https://www.baeldung.com/jacoco). A seguir é apresentado como gerar o report para monitoria em seu ambiente local. É importante lembrar que este passo será feito no pipeline de CI automaticamente.
 
+#### Gerar pela primeira vez
 1. Certifique-se que no pom.xml já o plugin do jacoco
 2. Para gerar a /target, rode:
 ```bash
@@ -25,6 +26,9 @@ Por padrão, os dados de execução são lidos no arquivo target/jacoco.exec e o
 diretório target/site/jacoco/index.html.
 Esse passo 3 é o que devemos incluir no CI.
 4. Para visualizar o report, no seu navegador de preferência coloque o caminho do arquivo index.html como url (```<relative-path>\target\site\jacoco\index.html```)
+
+#### Atualizar o relatório 
+Ao executarmos o comando mvn clean, depois o mvn verify, o relatório será atualizado.  
 
 ### É possível obter cobertura de 100%?
 Acesse a reflexão sobre a pergunta no arquivo desafio-cobertura_100.md na raiz do projeto
