@@ -66,4 +66,10 @@ public class LivroVendaTest {
         livroVenda.DecrementarQuantidade(2);
         Assert.assertEquals(1, livroVenda.quantidade);
     }
+
+    @Test
+    public void testNaoDecrementarQuantidadeMaiorQueUmQuandoNaoPossuiEstoqueSuficiente(){
+        LivroVenda livroVenda = new LivroVenda(livroEstoque, 3);
+        Assert.assertFalse(  livroVenda.DecrementarQuantidade(4));
+    }
 }

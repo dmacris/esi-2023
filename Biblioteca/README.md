@@ -9,10 +9,11 @@ Pelo primeiro relatório podemos verificar que dentro da classe LivroVenda a cob
 ![img_1.png](img_1.png) ![img_2.png](img_2.png)
 
 ### Útlimo relatório de cobertura de testes obtido
-
+Conseguimos aumentar a cobertura de testes ao adicionar teste para o construtor com parâmetros da classe Venda e ao cobrir o método DecrementarQuantidade(int quantidade) de LivroVenda que não estava sendo testado.
+![img_5.png](img_5.png)
 
 #### Exemplo de alteração
 Classe LivroVenda aumentou sua porcentagem de cobertura de teste ao adicionarmos um teste para cobrir o método DecrementarQuantidade(int quantidade)
-
+![img_4.png](img_4.png) ![img_3.png](img_3.png)
 ## É possível obter cobertura de 100%?
 Acesse a reflexão sobre a pergunta no arquivo desafio-cobertura_100.txt na raiz do projeto
