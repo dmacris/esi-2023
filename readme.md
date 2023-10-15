@@ -28,11 +28,13 @@ Esse passo 3 é o que devemos incluir no CI.
 4. Para visualizar o report, no seu navegador de preferência coloque o caminho do arquivo index.html como url (```<relative-path>\target\site\jacoco\index.html```)
 
 #### Atualizar o relatório 
-Ao executarmos o comando mvn clean, depois o mvn verify, o relatório será atualizado.  
+Ao executarmos o comando mvn clean, depois o mvn verify, o relatório será atualizado.
+
+### Relatórios já Obtidos
+Cada projeto (IMC e Biblioteca) possui seu próprio arquivo ReadMe e cada um contém prints do report de cobertura de testes obtido para o escopo em questão.
 
 ### É possível obter cobertura de 100%?
 Acesse a reflexão sobre a pergunta no arquivo desafio-cobertura_100.md na raiz do projeto
-
 
 ##### Referências
 https://www.youtube.com/watch?v=E5KMvKrs89Q
